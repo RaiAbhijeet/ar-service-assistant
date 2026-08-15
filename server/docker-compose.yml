@@ -1,0 +1,39 @@
+# Edge stack. Runs on the Dell Precision 7730 (Windows 11 + WSL2).
+# Ollama is NOT a service here — it runs natively on the Windows host so it can
+# see the GPU without a container passthrough layer; the api service reaches it
+# via host.docker.internal (see OLLAMA_HOST in .env.example).
+#
+# This network has no default route out of the LAN. If a service you're adding
+# needs internet access, stop — see CLAUDE.md section 2.
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${ARSA_PORT}:8000"
+    env_file:
+      - ../.env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  pgdata:

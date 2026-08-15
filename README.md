@@ -109,6 +109,7 @@ cd ar-service-assistant
 cp .env.example .env          # set ARSA_OBJECT and ARSA_HOST_IP
 
 make up                        # start the edge stack
+curl http://$ARSA_HOST_IP:$ARSA_PORT/health   # confirm the API + DB are reachable
 make ingest                    # fetch + chunk + embed the service manual
 make eval                      # verify retrieval quality before you trust it
 

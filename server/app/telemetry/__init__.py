@@ -1,0 +1,1 @@
+"""OpenTelemetry / structlog / Prometheus wiring."""
