@@ -1,0 +1,9 @@
+# The CI performance gate. `make perf` fails if any of these is breached.
+# Do not relax a budget to make the build green. Fix the code or write an ADR.
+
+refresh_hz: 72
+frame_time_p95_ms: 13.9      # 1000 / 72
+frame_time_p99_ms: 16.0
+stale_frames_pct_max: 0.5
+gc_bytes_per_frame_max: 0
+app_start_to_first_frame_ms: 4000

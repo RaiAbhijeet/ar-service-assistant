@@ -1,0 +1,81 @@
+# Demo object definition. Adding a new object means adding a folder like this one —
+# no code changes. This file is the contract between the object and the pipeline.
+
+id: bike-drivetrain
+name_de: Fahrrad-Antriebsstrang
+name_en: Bicycle drivetrain
+
+# ---------------------------------------------------------------- manual source
+# The PDF is NOT stored in this repository. `make ingest` downloads it from the
+# manufacturer's public support site and verifies the hash below before use.
+manuals:
+  - id: dm-rd0003
+    title_de: "Shimano Händlerbetriebsanleitung — Schaltwerk"
+    # Find the current DM-xxxxxx PDF at si.shimano.com, choose the GERMAN edition,
+    # download it once, run `sha256sum <file>` and paste the result here.
+    url: "<PASTE THE PUBLIC SHIMANO DEALER'S MANUAL PDF URL>"
+    sha256: "<PASTE sha256 OF THAT FILE>"
+    language: de
+    license_note: >
+      Copyright Shimano Inc. Not redistributed in this repository.
+      Downloaded at ingest time from the manufacturer's public site.
+
+# ------------------------------------------------------------------- part list
+# CLOSED SET. Anything not in this list must be refused, never guessed.
+# part ids are stable identifiers used across reference photos, retrieval
+# metadata, the UI resource files and the evaluation golden set.
+parts:
+  - id: rear_derailleur
+    name_de: Schaltwerk
+    aliases_de: [Schaltwerk, hinteres Schaltwerk, Umwerfer hinten]
+    typical_procedures: [Einstellung, Ausbau, Kettenlängenprüfung]
+  - id: front_derailleur
+    name_de: Umwerfer
+    aliases_de: [Umwerfer, vorderer Umwerfer]
+  - id: cassette
+    name_de: Kassette
+    aliases_de: [Kassette, Zahnkranzpaket, Ritzelpaket]
+  - id: chain
+    name_de: Kette
+    aliases_de: [Kette, Fahrradkette]
+  - id: crankset
+    name_de: Kurbelgarnitur
+    aliases_de: [Kurbel, Kurbelgarnitur, Kettenblatt]
+  - id: shifter
+    name_de: Schalthebel
+    aliases_de: [Schalthebel, Schalt-/Bremshebel, Trigger]
+  - id: brake_caliper
+    name_de: Bremssattel
+    aliases_de: [Bremssattel, Scheibenbremssattel]
+  - id: brake_rotor
+    name_de: Bremsscheibe
+    aliases_de: [Bremsscheibe, Rotor]
+  - id: cable_housing
+    name_de: Zughülle
+    aliases_de: [Zughülle, Außenhülle, Bowdenzug]
+  - id: b_tension_screw
+    name_de: B-Spannungsschraube
+    aliases_de: [B-Schraube, B-Spannungsschraube]
+  - id: limit_screws
+    name_de: Anschlagschrauben
+    aliases_de: [Anschlagschrauben, H-/L-Schrauben, Endanschlag]
+  - id: barrel_adjuster
+    name_de: Zugspannungsschraube
+    aliases_de: [Zugspannungsschraube, Rändelschraube, Einstellschraube]
+
+# ------------------------------------------------------------------ thresholds
+# See ADR-0006. Refusing is a first-class outcome; these numbers decide when.
+thresholds:
+  min_part_confidence: 0.65       # below this -> "bitte näher herangehen"
+  confident_threshold: 0.80       # used to compute the false-confident rate
+  min_retrieval_score: 0.35       # below this -> "dazu finde ich nichts"
+  max_retrieved_chunks: 5
+
+# --------------------------------------------------------------- capture setup
+# Documented so the measurements are reproducible and so the README's
+# "tested only under these conditions" statement is truthful.
+capture:
+  reference_photos_per_part: 20
+  lighting_conditions: [tageslicht_indirekt, deckenlampe_warm, werkstattlampe_kalt]
+  distance_cm: [25, 60]
+  held_out_photos_per_part: 10

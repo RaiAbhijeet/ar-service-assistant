@@ -1,0 +1,26 @@
+name: unity
+on:
+  push: { paths: ['unity/**', '.github/workflows/unity.yml'] }
+  pull_request: { paths: ['unity/**'] }
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true }
+      - uses: actions/cache@v4
+        with:
+          path: unity/Library
+          key: Library-${{ hashFiles('unity/Assets/**','unity/Packages/**','unity/ProjectSettings/**') }}
+          restore-keys: Library-
+      - uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: unity
+          testMode: all
+          coverageOptions: 'generateAdditionalMetrics;assemblyFilters:+ARSA.*'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: unity-test-results, path: artifacts }

@@ -1,0 +1,18 @@
+name: perf-gate
+on:
+  schedule: [{ cron: '0 4 * * *' }]
+  workflow_dispatch:
+
+# Requires a self-hosted runner with the Quest attached over adb.
+jobs:
+  device-run:
+    runs-on: [self-hosted, quest]
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true }
+      - run: make apk
+      - run: make install
+      - run: make perf          # fails the job if any budget in budgets.yaml is breached
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: frametimes, path: tools/perf/out/ }
