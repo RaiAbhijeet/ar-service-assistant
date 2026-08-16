@@ -5,7 +5,7 @@ SHELL := /bin/bash
 -include .env
 export
 
-UNITY_PATH ?= /mnt/c/Program Files/Unity/Hub/Editor/6000.0.30f1/Editor/Unity.exe
+UNITY_PATH ?= /mnt/c/Program Files/Unity/Hub/Editor/6000.3.17f1/Editor/Unity.exe
 UNITY_PROJECT := $(CURDIR)/unity
 APK := build/ARServiceAssistant.apk
 

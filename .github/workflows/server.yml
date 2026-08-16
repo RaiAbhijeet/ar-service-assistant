@@ -18,13 +18,16 @@ jobs:
           --health-cmd pg_isready --health-interval 5s
           --health-timeout 5s --health-retries 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: { python-version: '3.12', cache: 'pip' }
       - run: pip install -e "server[dev]"
       - run: ruff check server
       - run: ruff format --check server
-      - run: mypy --strict server/app
+      # --config-file is required here: mypy only auto-discovers a config
+      # file in its cwd (the repo root in CI), and server/pyproject.toml
+      # (which ignores asyncpg's missing stubs) lives one level down.
+      - run: mypy --strict --config-file server/pyproject.toml server/app
       - run: pytest server/tests -q --cov=server/app --cov-report=term-missing --cov-fail-under=80
         env:
           DATABASE_URL: postgresql://arsa:arsa@localhost:5432/arsa_test

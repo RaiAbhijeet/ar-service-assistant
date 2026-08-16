@@ -9,7 +9,7 @@ jobs:
   golden-set:
     runs-on: [self-hosted, gpu]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make eval
       - run: python server/eval/check_thresholds.py docs/benchmarks/eval-latest.json server/eval/thresholds.yaml
       - uses: actions/upload-artifact@v4
