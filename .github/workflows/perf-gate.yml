@@ -13,6 +13,6 @@ jobs:
       - run: make apk
       - run: make install
       - run: make perf          # fails the job if any budget in budgets.yaml is breached
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with: { name: frametimes, path: tools/perf/out/ }
