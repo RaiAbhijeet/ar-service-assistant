@@ -43,6 +43,14 @@ test: ## Python unit + integration tests
 lint: ## ruff + mypy
 	cd server && ruff check . && ruff format --check . && mypy --strict app
 
+ci-local: ## Run exactly what .github/workflows/server.yml runs, without a real Postgres
+	pip install -e "server[dev]"
+	ruff check server
+	ruff format --check server
+	mypy --strict --config-file server/pyproject.toml server/app
+	POSTGRES_HOST=localhost POSTGRES_PORT=5432 POSTGRES_USER=arsa POSTGRES_PASSWORD=arsa POSTGRES_DB=arsa_test \
+	  pytest server/tests -q --cov=server/app --cov-report=term-missing --cov-fail-under=80
+
 # --------------------------------------------------------------------- unity --
 apk: ## Build the Quest APK (calls the Windows Unity editor from WSL)
 	"$(UNITY_PATH)" -quit -batchmode -nographics \
@@ -62,7 +70,7 @@ perf: ## Scripted device run + frame-time gate
 egress-check: ## Prove nothing left the LAN during a demo run
 	bash tools/net/verify_no_egress.sh
 
-.PHONY: help up down logs ingest eval test lint apk install perf egress-check
+.PHONY: help up down logs ingest eval test lint ci-local apk install perf egress-check
 
 doctor: ## Diagnose the local environment (run this before asking for help)
 	bash tools/doctor.sh

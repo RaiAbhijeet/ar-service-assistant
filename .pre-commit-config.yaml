@@ -1,0 +1,34 @@
+# Install once with: pip install pre-commit && pre-commit install --hook-type pre-commit --hook-type commit-msg
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.3
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^server/
+      - id: ruff-format
+        files: ^server/
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      # unity/ is excluded from all three: most of it is Editor/package-
+      # generated (ProjectSettings/*.asset, .meta, .unity scenes, shaders,
+      # Packages/packages-lock.json...) and was verified working byte-for-
+      # byte against the real Editor. A generic whitespace/EOF fixer touching
+      # that tree turned into a 140-file, 1700-line diff the first time this
+      # was tested — never again without a deliberate, scoped decision.
+      - id: end-of-file-fixer
+        exclude: ^unity/
+      - id: trailing-whitespace
+        exclude: ^unity/
+      - id: check-yaml
+        exclude: ^unity/
+
+  - repo: local
+    hooks:
+      - id: conventional-commit-message
+        name: Conventional Commit message
+        language: system
+        entry: bash tools/git/check_commit_message.sh
+        stages: [commit-msg]

@@ -30,4 +30,12 @@ jobs:
       - run: mypy --strict --config-file server/pyproject.toml server/app
       - run: pytest server/tests -q --cov=server/app --cov-report=term-missing --cov-fail-under=80
         env:
-          DATABASE_URL: postgresql://arsa:arsa@localhost:5432/arsa_test
+          # Must match app.config.Settings' field names, not an arbitrary
+          # DATABASE_URL (which nothing in the app reads). Unit tests mock
+          # asyncpg entirely today, so this only matters once a real
+          # integration test needs the live `postgres` service above.
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: "5432"
+          POSTGRES_USER: arsa
+          POSTGRES_PASSWORD: arsa
+          POSTGRES_DB: arsa_test

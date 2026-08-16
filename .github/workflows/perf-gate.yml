@@ -7,6 +7,14 @@ on:
 jobs:
   device-run:
     runs-on: [self-hosted, quest]
+    # TODO(M0.5 · Quest perf harness): tools/perf/run_scripted_session.sh
+    # and tools/perf/parse_frametimes.py don't exist yet (only budgets.yaml
+    # does), so `make perf` cannot pass. continue-on-error keeps the failure
+    # from blocking the workflow conclusion without hiding it — the job
+    # still runs and still reports failed (⚠) in the Actions UI. Remove
+    # continue-on-error once that milestone lands; do not weaken
+    # tools/perf/budgets.yaml to make it pass early.
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
         with: { lfs: true }
