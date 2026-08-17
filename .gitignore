@@ -4,6 +4,7 @@
 # =============================================================================
 unity/[Ll]ibrary/
 unity/[Tt]emp/
+unity/.utmp/
 unity/[Oo]bj/
 unity/[Bb]uild/
 unity/[Bb]uilds/
@@ -36,6 +37,7 @@ unity/*.VC.db
 # Crash reports
 unity/sysinfo.txt
 unity/crashlytics-build.properties
+unity/Build/
 
 # =============================================================================
 # Model weights, manuals, media  —  NEVER commit these.

@@ -14,7 +14,12 @@ namespace ARSA.Build
     /// </summary>
     public static class BuildScript
     {
-        private const string OutputApkPath = "build/ARServiceAssistant.apk";
+        // "Build/ARServiceAssistant.apk" *inside the Unity project* — not repo-root
+        // "build/". Resolved from Application.dataPath rather than a bare relative
+        // string, so it lands in the same place regardless of the process's working
+        // directory when invoked (batchmode's CWD behavior isn't something to rely
+        // on implicitly). unity/[Bb]uild/ is already gitignored.
+        private const string OutputApkFileName = "ARServiceAssistant.apk";
 
         private const string KeystorePathEnvVar = "ARSA_KEYSTORE_PATH";
         private const string KeystorePasswordEnvVar = "ARSA_KEYSTORE_PASSWORD";
@@ -24,32 +29,51 @@ namespace ARSA.Build
         public static void BuildAndroid()
         {
             ConfigureKeystore();
-
-            var outputDirectory = Path.GetDirectoryName(OutputApkPath);
-            if (!string.IsNullOrEmpty(outputDirectory) && !Directory.Exists(outputDirectory))
+            try
             {
-                Directory.CreateDirectory(outputDirectory);
+                var projectRoot = Directory.GetParent(Application.dataPath)!.FullName;
+                var outputDirectory = Path.Combine(projectRoot, "Build");
+                var outputPath = Path.Combine(outputDirectory, OutputApkFileName);
+                if (!Directory.Exists(outputDirectory))
+                {
+                    Directory.CreateDirectory(outputDirectory);
+                }
+
+                var scenes = Array.ConvertAll(EditorBuildSettings.scenes, scene => scene.path);
+                var options = new BuildPlayerOptions
+                {
+                    scenes = scenes,
+                    locationPathName = outputPath,
+                    target = BuildTarget.Android,
+                    options = BuildOptions.None,
+                };
+
+                var report = BuildPipeline.BuildPlayer(options);
+                var summary = report.summary;
+
+                if (summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
+                {
+                    throw new BuildFailedException(
+                        $"Android build failed: {summary.result} ({summary.totalErrors} error(s)).");
+                }
+
+                Debug.Log($"Android build succeeded: {summary.outputPath} ({summary.totalSize} bytes).");
             }
-
-            var scenes = Array.ConvertAll(EditorBuildSettings.scenes, scene => scene.path);
-            var options = new BuildPlayerOptions
+            finally
             {
-                scenes = scenes,
-                locationPathName = OutputApkPath,
-                target = BuildTarget.Android,
-                options = BuildOptions.None,
-            };
-
-            var report = BuildPipeline.BuildPlayer(options);
-            var summary = report.summary;
-
-            if (summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
-            {
-                throw new BuildFailedException(
-                    $"Android build failed: {summary.result} ({summary.totalErrors} error(s)).");
+                // PlayerSettings.Android.keystoreName/keyaliasName are project-level
+                // (not build-scoped) and get written straight to the committed
+                // ProjectSettings.asset the moment ConfigureKeystore sets them —
+                // there's no "this build only" variant. Clear them back out
+                // afterward so the repo never carries a record of which keystore
+                // built it, success or failure.
+                PlayerSettings.Android.useCustomKeystore = false;
+                PlayerSettings.Android.keystoreName = string.Empty;
+                PlayerSettings.Android.keystorePass = string.Empty;
+                PlayerSettings.Android.keyaliasName = string.Empty;
+                PlayerSettings.Android.keyaliasPass = string.Empty;
+                AssetDatabase.SaveAssets();
             }
-
-            Debug.Log($"Android build succeeded: {summary.outputPath} ({summary.totalSize} bytes).");
         }
 
         private static void ConfigureKeystore()
