@@ -12,6 +12,7 @@ unity/[Ll]ogs/
 unity/[Uu]ser[Ss]ettings/
 unity/[Mm]emoryCaptures/
 unity/[Rr]ecordings/
+unity/Assets/_Recovery/
 unity/Assets/AssetStoreTools*
 unity/Assets/Plugins/Editor/JetBrains*
 unity/.vs/
