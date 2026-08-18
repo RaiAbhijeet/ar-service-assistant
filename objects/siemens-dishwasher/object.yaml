@@ -1,0 +1,262 @@
+# Demo object: Siemens dishwasher.
+# Adding an object = adding a folder like this one. No code changes anywhere.
+#
+# BEFORE USING THIS FILE:
+#   1. Find the E-Nr. on the sticker along the door edge (e.g. SN45ZS49CE/01).
+#   2. Download the matching Gebrauchsanleitung PDF from Siemens' public support site.
+#   3. Run `sha256sum <file>` and paste URL + hash below.
+#   4. Replace every <PLACEHOLDER>. Fault codes MUST come from your manual — do not guess.
+
+id: siemens-dishwasher
+name_de: Siemens Geschirrspüler
+name_en: Siemens dishwasher
+model_enr: "SX63HX52BE/24"
+
+# ------------------------------------------------------------------ manual source
+# The PDF is NOT stored in this repository. `make ingest` downloads it and verifies
+# the hash before use. See README section on licensing.
+manuals:
+  - id: gebrauchsanleitung
+    title_de: "Siemens Geschirrspüler — Gebrauchs- und Aufstellanleitung"
+    url: "https://media3.bsh-group.com/Documents/9001637670_B.pdf"
+    sha256: "c4f0ec621ad42cd62f8d8ce993b6779a2d966d79e7860d7250ee822aa6dafa15"
+    language: de
+    # Which sections carry procedural content worth indexing. Confirm against your PDF.
+    relevant_sections_de:
+      - "Reinigen und Warten"
+      - "Sieb / Siebkombination reinigen"
+      - "Sprüharme reinigen"
+      - "Wasserenthärtungsanlage / Salz einfüllen"
+      - "Klarspüler einfüllen"
+      - "Reiniger dosieren"
+      - "Geschirr einordnen / Körbe verstellen"
+      - "Störungen, was tun?"
+    license_note: >
+      Copyright BSH Hausgeräte GmbH / Siemens. Not redistributed in this repository.
+      Downloaded at ingest time from the manufacturer's public support site.
+
+# --------------------------------------------------------------------- part list
+# CLOSED SET. Anything not listed must be refused, never guessed (ADR-0006).
+# `id` is the stable key across reference photos, retrieval metadata, UI strings
+# and the evaluation golden set. Never rename an id once photos exist.
+parts:
+  - id: siebkombination
+    name_de: Siebkombination
+    aliases_de: [Sieb, Siebkombination, Feinsieb, Grobsieb, Zylindersieb]
+    typical_procedures: [reinigen, ausbauen, einsetzen]
+    notes: "Primary maintenance part. Bottom of the tub, visible with door open."
+
+  - id: sprueharm_unten
+    name_de: Unterer Sprüharm
+    aliases_de: [unterer Sprüharm, Sprüharm unten]
+    typical_procedures: [abnehmen, Düsen reinigen, aufsetzen]
+    notes: "Visually similar to sprueharm_oben — a deliberate hard case."
+
+  - id: sprueharm_oben
+    name_de: Oberer Sprüharm
+    aliases_de: [oberer Sprüharm, Sprüharm oben]
+    typical_procedures: [abschrauben, Düsen reinigen, anschrauben]
+
+  - id: salzbehaelter
+    name_de: Salzbehälter
+    aliases_de: [Salzbehälter, Enthärtersalz, Vorratsbehälter für Salz]
+    typical_procedures: [Salz einfüllen, Wasserhärte einstellen]
+    notes: "Visually similar to klarspuelbehaelter — the second hard case."
+
+  - id: klarspuelbehaelter
+    name_de: Klarspülerbehälter
+    aliases_de: [Klarspüler, Klarspülbehälter, Glanzmittel]
+    typical_procedures: [nachfüllen, Dosierung einstellen]
+
+  - id: reinigerkammer
+    name_de: Reinigerkammer
+    aliases_de: [Reinigerkammer, Dosierkammer, Reinigerfach, Tab-Fach]
+    typical_procedures: [Reiniger dosieren, Kammer schließen]
+
+  - id: bedienfeld
+    name_de: Bedienfeld
+    aliases_de: [Bedienfeld, Display, Anzeige, Programmwahl, Bedienblende]
+    typical_procedures: [Programm wählen, Wasserhärte einstellen, Fehlercode ablesen]
+    notes: "Entry point for the fault-code path."
+
+  - id: tuerdichtung
+    name_de: Türdichtung
+    aliases_de: [Türdichtung, Dichtung, Gummidichtung]
+    typical_procedures: [reinigen, auf Beschädigung prüfen]
+
+  - id: oberkorb
+    name_de: Oberkorb
+    aliases_de: [Oberkorb, oberer Korb, Rackmatic, Höhenverstellung]
+    typical_procedures: [Höhe verstellen, Geschirr einordnen]
+
+  - id: unterkorb
+    name_de: Unterkorb
+    aliases_de: [Unterkorb, unterer Korb]
+    typical_procedures: [Geschirr einordnen, Klappstacheln umlegen]
+
+  - id: besteckschublade
+    name_de: Besteckschublade
+    aliases_de: [Besteckschublade, Besteckkorb, Etagere, Varioschublade]
+    typical_procedures: [Besteck einordnen, Ablagen verstellen]
+
+  - id: zulaufsieb
+    name_de: Sieb im Wasserzulauf
+    aliases_de: [Zulaufsieb, Wasserzulauf, Aquastop, Zulaufschlauch, Sieb am Zulauf]
+    typical_procedures: [Wasserhahn schließen, Sieb reinigen, Schlauch anschließen]
+    notes: "Behind/under the machine. Include only if physically reachable for filming."
+
+# ------------------------------------------------------- fault codes (entry path)
+# Transcribed from the manual's "Fehlercode / Fehleranzeige / Signal" table
+# (Störungstabelle, p.45). A code can have more than one possible cause — each
+# is a separate entry under `causes`. Steps are kept in the manual's own order.
+fault_codes:
+  - code: "E:20-60"
+    display_de: "E:20-60 leuchtet im Wechsel."
+    causes:
+      - ursache_de: "Gerät hat verkalktes Heizelement erkannt."
+        behebung_de: |
+          1. Entkalken Sie das Gerät.
+          2. Betreiben Sie das Gerät mit der Enthärtungsanlage (je nach Geräteausstattung).
+    related_parts: []  # "Heizelement" is not in parts: yet — see chat note.
+
+  - code: "E:30-00"
+    display_de: "E:30-00 leuchtet im Wechsel."
+    causes:
+      - ursache_de: "Wasserschutzsystem ist aktiviert."
+        behebung_de: |
+          1. Schließen Sie den Wasserhahn.
+          2. Rufen Sie den "Kundendienst" → Seite 60.
+    related_parts: []
+
+  - code: "E:31-00"
+    display_de: "E:31-00 leuchtet im Wechsel."
+    causes:
+      - ursache_de: "Wasserschutzsystem ist aktiviert."
+        behebung_de: |
+          1. Schließen Sie den Wasserhahn.
+          2. Rufen Sie den "Kundendienst" → Seite 60.
+    related_parts: []
+
+  - code: "E:32-00"
+    display_de: "E:32-00 leuchtet im Wechsel oder Anzeige für Wasserzulauf leuchtet."
+    causes:
+      - ursache_de: "Zulaufschlauch ist geknickt."
+        behebung_de: "Verlegen Sie den Zulaufschlauch knickfrei."
+      - ursache_de: "Wasserhahn ist geschlossen."
+        behebung_de: "Öffnen Sie den Wasserhahn."
+      - ursache_de: >
+          Wasserhahn ist verklemmt oder verkalkt. Die Durchflussmenge muss bei
+          geöffnetem Wasserzulauf mindestens 10 l/min betragen.
+        behebung_de: "Öffnen Sie den Wasserhahn."
+      - ursache_de: "Siebe im Wasseranschluss des Zulauf- oder Aqua-Stop-Schlauches sind verstopft."
+        behebung_de: |
+          1. Schalten Sie das Gerät aus.
+          2. Ziehen Sie den Netzstecker.
+          3. Drehen Sie den Wasserhahn zu.
+          4. Schrauben Sie den Wasseranschluss ab.
+          5. Nehmen Sie das Sieb aus dem Zulaufschlauch.
+          6. Säubern Sie das Sieb.
+          7. Setzen Sie das Sieb in den Zulaufschlauch.
+          8. Schrauben Sie den Wasseranschluss an.
+          9. Prüfen Sie den Wasseranschluss auf Dichtigkeit.
+          10. Stellen Sie die Stromversorgung her.
+          11. Schalten Sie das Gerät ein.
+    related_parts: [zulaufsieb]
+
+  - code: "E:34-00"
+    display_de: "E:34-00 leuchtet im Wechsel."
+    causes:
+      - ursache_de: "Wasser läuft ständig in das Gerät."
+        behebung_de: |
+          1. Schließen Sie den Wasserhahn.
+          2. Rufen Sie den "Kundendienst" → Seite 60.
+    related_parts: []
+
+  - code: "E:61-02"
+    display_de: "E:61-02 leuchtet im Wechsel."
+    causes:
+      - ursache_de: "Abwasserpumpe ist blockiert."
+        behebung_de: 'Reinigen Sie die Abwasserpumpe. → "Abwasserpumpe reinigen", Seite 59.'
+      - ursache_de: "Abdeckung der Abwasserpumpe ist lose."
+        behebung_de: 'Rasten Sie die Abdeckung der "Abwasserpumpe" → Seite 59 richtig ein.'
+    related_parts: []  # "Abwasserpumpe" is not in parts: yet — see chat note.
+
+  - code: "E:61-03"
+    display_de: "E:61-03 leuchtet im Wechsel. Wasser wird nicht abgepumpt."
+    causes:
+      - ursache_de: "Abwasserschlauch ist verstopft oder geknickt."
+        behebung_de: |
+          1. Verlegen Sie den Abwasserschlauch knickfrei.
+          2. Entfernen Sie Rückstände.
+      - ursache_de: "Siphonanschluss ist noch verschlossen."
+        behebung_de: "Prüfen Sie den Anschluss am Siphon und öffnen Sie diesen bei Bedarf."
+      - ursache_de: "Abdeckung der Abwasserpumpe ist lose."
+        behebung_de: 'Rasten Sie die Abdeckung der "Abwasserpumpe" → Seite 59 richtig ein.'
+    related_parts: []  # "Abwasserpumpe" is not in parts: yet — see chat note.
+
+  - code: "E:90-01"
+    display_de: "E:90-01 leuchtet im Wechsel."
+    causes:
+      - ursache_de: "Netzspannung ist zu gering. Es liegt kein Gerätefehler vor."
+        behebung_de: |
+          1. Rufen Sie einen Elektriker.
+          2. Lassen Sie die Netzspannung und die Elektroinstallation durch den Elektriker prüfen.
+    related_parts: []
+
+  - code: "E:92-40"
+    display_de: "E:92-40 leuchtet im Wechsel."
+    causes:
+      - ursache_de: "Siebe sind verschmutzt oder verstopft."
+        behebung_de: 'Reinigen Sie die Siebe. → "Siebe reinigen", Seite 43.'
+    related_parts: [siebkombination]
+
+  # Generic catch-all row from the manual — not a literal code, covers any
+  # other code in this numeric range that isn't listed individually above.
+  - code: "E:01-00–E:90-10 (sonstige)"
+    display_de: "Ein anderer Fehlercode erscheint im Anzeigefenster."
+    causes:
+      - ursache_de: "Eine technische Störung liegt vor."
+        behebung_de: |
+          1. Drücken Sie <Taste/Symbol laut Handbuch — im PDF-Text nicht lesbar, bitte Originalseite prüfen>.
+          2. Ziehen Sie den Netzstecker des Geräts oder schalten Sie die Sicherung aus.
+          3. Warten Sie mindestens 2 Minuten.
+          4. Den Netzstecker des Geräts in eine Steckdose stecken oder die Sicherung einschalten.
+          5. Schalten Sie das Gerät ein.
+          6. Wenn das Problem erneut auftritt:
+             - Drücken Sie <Taste/Symbol laut Handbuch>.
+             - Schließen Sie den Wasserhahn.
+             - Ziehen Sie den Netzstecker.
+             - Kontaktieren Sie den "Kundendienst" → Seite 60 und nennen Sie den Fehlercode.
+    related_parts: []
+
+# ------------------------------------------------------------------- thresholds
+# ADR-0006: refusing is a first-class outcome. These numbers decide when.
+thresholds:
+  min_part_confidence: 0.65        # below -> "Ich bin nicht sicher, bitte näher herangehen"
+  confident_threshold: 0.80        # used to compute the false-confident rate
+  min_retrieval_score: 0.35        # below -> "Dazu finde ich im Handbuch nichts"
+  max_retrieved_chunks: 5
+
+# ------------------------------------------------------------------ capture plan
+# Documented so measurements are reproducible and the README's
+# "tested only under these conditions" statement stays truthful.
+capture:
+  reference_photos_per_part: 20
+  held_out_photos_per_part: 10
+  lighting_conditions:
+    - kuechenlicht_decke        # ceiling light, evening
+    - tageslicht_fenster        # daylight, door open
+    - arbeitsleuchte_kalt       # cold work lamp
+  distance_cm: [30, 60]
+  # Held-out set must include realistic dirty states — food residue in the filter,
+  # limescale on the spray arm. Report the clean-vs-used accuracy gap in the README.
+  heldout_must_include: [sauber, benutzt_mit_rueckstaenden]
+
+# ------------------------------------------------------------------------ safety
+# Shown in the UI before any procedure that requires it. Sourced from the manual's
+# warning boxes — copy the actual wording, do not paraphrase safety text.
+safety_prompts_de:
+  - applies_to: [zulaufsieb]
+    text: "<Warnhinweis wörtlich aus dem Handbuch: Wasserhahn schließen / Gerät vom Netz trennen>"
+  - applies_to: [siebkombination, sprueharm_unten, sprueharm_oben]
+    text: "<Warnhinweis wörtlich aus dem Handbuch: Verbrühungsgefahr / Programm beendet abwarten>"
