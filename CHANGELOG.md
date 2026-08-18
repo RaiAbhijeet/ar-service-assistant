@@ -7,3 +7,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ## [Unreleased]
 ### Added
 - Repository skeleton, CLAUDE.md, ADR templates, CI scaffolding
+- **M0 complete** — server skeleton (FastAPI `/health`, Postgres+pgvector,
+  Docker Compose), Unity 6 client skeleton (OpenXR, URP, ARSA.* assemblies,
+  Meta Passthrough Building Block, confirmed working on-device), and CI
+  (GitHub Actions for both, pre-commit, Dependabot). See `docs/logbook/M0.md`.
