@@ -132,7 +132,7 @@ objects/meine-anlage/
 
 Danach `ARSA_OBJECT=meine-anlage make ingest`.
 
-Enthaltene Objekte: `bike-drivetrain` (primär), `<zweites Objekt>` (belegt die
+Enthaltene Objekte: `siemens-dishwasher` (primär), `<zweites Objekt>` (belegt die
 Konfigurierbarkeit).
 
 ---

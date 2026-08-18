@@ -31,7 +31,7 @@ class Settings(BaseSettings):
 
     # ----------------------------------------------------------- demo object
     arsa_object: str = Field(
-        default="bike-drivetrain",
+        default="siemens-dishwasher",
         description="Active demo object; a folder name under objects/.",
     )
 

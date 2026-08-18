@@ -134,7 +134,7 @@ objects/my-machine/
 
 Then `ARSA_OBJECT=my-machine make ingest`.
 
-Objects currently shipped: `bike-drivetrain` (primary), `<second-object>` (proves the
+Objects currently shipped: `siemens-dishwasher` (primary), `<second-object>` (proves the
 config-driven claim).
 
 ---
