@@ -41,6 +41,7 @@ WORKDIR /app
 RUN chown arsa:arsa /app
 
 COPY --chown=arsa:arsa app ./app
+COPY --chown=arsa:arsa ingest ./ingest
 COPY --chown=arsa:arsa tests ./tests
 COPY --chown=arsa:arsa pyproject.toml ./
 

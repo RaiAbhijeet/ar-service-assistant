@@ -27,7 +27,7 @@ jobs:
       # --config-file is required here: mypy only auto-discovers a config
       # file in its cwd (the repo root in CI), and server/pyproject.toml
       # (which ignores asyncpg's missing stubs) lives one level down.
-      - run: mypy --strict --config-file server/pyproject.toml server/app
+      - run: mypy --strict --config-file server/pyproject.toml server/app server/ingest
       - run: pytest server/tests -q --cov=server/app --cov-report=term-missing --cov-fail-under=80
         env:
           # Must match app.config.Settings' field names, not an arbitrary
