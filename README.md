@@ -41,7 +41,8 @@ on-premise machine, with the headset as a thin client.
 
 | Metric | Target | Measured |
 |---|---|---|
-| Retrieval Recall@5 (German golden set, n=40) | ≥ 0.85 | TBD |
+| Retrieval Recall@5 (German golden set, n=60) | ≥ 0.85 | 0.732 — below target, root-caused in [ADR-0008](docs/adr/0008-known-m1-recall-gap.md) |
+| Retrieval refusal accuracy (14 `must_refuse` entries) | ≥ 0.95 | 0.0 — `min_retrieval_score` recalibration pending |
 | Answer faithfulness (judge + manual audit) | ≥ 0.90 | TBD |
 | Part recognition top-1 (n=120, 3 lighting conditions) | ≥ 0.90 | TBD |
 | **False-confident rate** (wrong part at confidence > 0.8) | ≤ 0.02 | TBD |
@@ -94,6 +95,8 @@ Each of these is a documented trade-off, not a default:
 | [0004](docs/adr/0004-int4-quantization-no-fp16-on-pascal.md) | Integer quantization only — no FP16 path on Pascal hardware |
 | [0005](docs/adr/0005-openxr-instead-of-vendor-plugin.md) | OpenXR instead of the vendor XR plugin |
 | [0006](docs/adr/0006-refusal-over-generation.md) | Refusing to answer is a first-class outcome |
+| [0007](docs/adr/0007-pymupdf-for-layout-aware-chunking.md) | Layout-aware chunking (PyMuPDF) instead of a fixed-length text splitter |
+| [0008](docs/adr/0008-known-m1-recall-gap.md) | A measured recall gap is root-caused and documented, not silently patched |
 
 ---
 

@@ -15,7 +15,7 @@ local edge server on the same LAN. Nothing ever leaves the local network.**
 - **Edge server (Dell Precision 7730, Windows 11 + WSL2, Quadro P5200 16 GB)** = all inference.
 - **Transport** = WebSocket over LAN.
 
-The demo object is **configurable** (see `objects/`). The default is a bicycle drivetrain.
+The demo object is **configurable** (see `objects/`). The default is a Siemens dishwasher.
 No code may hardcode anything about a specific object.
 
 ---
@@ -132,7 +132,7 @@ make egress-check# tcpdump verification that nothing left the LAN
 make lint        # ruff + mypy
 ```
 
-Active object is selected by `ARSA_OBJECT` in `.env` (default: `bike-drivetrain`).
+Active object is selected by `ARSA_OBJECT` in `.env` (default: `siemens-dishwasher`).
 
 ---
 

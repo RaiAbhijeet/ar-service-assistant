@@ -39,7 +39,8 @@ Retrieval-Pipeline auf einem einzelnen lokalen Rechner, das Headset als Thin Cli
 
 | Kennzahl | Zielwert | Gemessen |
 |---|---|---|
-| Retrieval Recall@5 (deutscher Golden Set, n=40) | ≥ 0,85 | TBD |
+| Retrieval Recall@5 (deutscher Golden Set, n=60) | ≥ 0,85 | 0,732 — unter Zielwert, Ursachenanalyse in [ADR-0008](docs/adr/0008-known-m1-recall-gap.md) |
+| Retrieval-Verweigerungsgenauigkeit (14 `must_refuse`-Einträge) | ≥ 0,95 | 0,0 — Neukalibrierung von `min_retrieval_score` steht aus |
 | Antworttreue (Judge + manuelle Prüfung) | ≥ 0,90 | TBD |
 | Bauteilerkennung Top-1 (n=120, 3 Lichtsituationen) | ≥ 0,90 | TBD |
 | **Rate falsch-sicherer Antworten** (falsches Bauteil bei Konfidenz > 0,8) | ≤ 0,02 | TBD |
@@ -92,6 +93,8 @@ Jede dieser Entscheidungen ist eine dokumentierte Abwägung, keine Voreinstellun
 | [0004](docs/adr/0004-int4-quantization-no-fp16-on-pascal.md) | Ausschließlich Integer-Quantisierung — kein FP16-Pfad auf Pascal-Hardware |
 | [0005](docs/adr/0005-openxr-instead-of-vendor-plugin.md) | OpenXR statt Vendor-XR-Plugin |
 | [0006](docs/adr/0006-refusal-over-generation.md) | Die Antwortverweigerung ist ein gleichwertiges Ergebnis |
+| [0007](docs/adr/0007-pymupdf-for-layout-aware-chunking.md) | Layoutbewusstes Chunking (PyMuPDF) statt eines Splitters mit fester Textlänge |
+| [0008](docs/adr/0008-known-m1-recall-gap.md) | Eine gemessene Recall-Lücke wird ursachenanalysiert und dokumentiert, nicht stillschweigend geflickt |
 
 ---
 
