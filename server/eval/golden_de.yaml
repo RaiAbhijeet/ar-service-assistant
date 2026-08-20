@@ -1,0 +1,424 @@
+# Golden eval set — Siemens SX63HX52BE Geschirrspüler, Gebrauchsanleitung (de)
+# Source PDF: 9001637670_B.pdf, 64 pages.
+# expected_pages are 1-based PDF page indices. Verified: for this document the
+# PDF page index equals the printed page number (PDF p.25 prints "25"), so the
+# two readings coincide. Do NOT assume that holds for other manuals.
+#
+# 42 entries: 32 answerable, 10 must_refuse.
+
+# ---------------------------------------------------------------------------
+# Enthärtungsanlage / Wasserhärte / Spezialsalz
+# ---------------------------------------------------------------------------
+
+- id: g001
+  question: "Wie stelle ich die Wasserhärte an meiner Spülmaschine ein?"
+  expected_pages: [25, 26, 36]
+  expected_keywords: ["Enthärtungsanlage", "Wasserhärtegrad", "Grundeinstellungen", "H04"]
+  must_refuse: false
+
+- id: g002
+  question: "Wir haben sehr hartes Wasser, 18 °dH. Welchen Wert muss ich einstellen?"
+  expected_pages: [26]
+  expected_keywords: ["H05", "17 - 21", "hart"]
+  must_refuse: false
+
+- id: g003
+  question: "Ab wann brauche ich überhaupt kein Spezialsalz mehr?"
+  expected_pages: [25, 26, 27]
+  expected_keywords: ["6 °dH", "Spezialsalz", "verzichten", "Enthärtungsanlage ausschalten"]
+  must_refuse: false
+
+- id: g004
+  question: "Die Salznachfüllanzeige nervt mich, weil ich Multitabs benutze. Kann ich die abschalten?"
+  expected_pages: [26, 27]
+  expected_keywords: ["H00", "Enthärtungsanlage ausschalten", "Salznachfüllanzeige", "21 °dH"]
+  must_refuse: false
+
+- id: g005
+  question: "Wie fülle ich das Salz richtig ein?"
+  expected_pages: [26, 27]
+  expected_keywords: ["Vorratsbehälter", "Deckel", "unmittelbar vor dem Programmstart"]
+  must_refuse: false
+
+- id: g006
+  question: "Kann ich statt Spezialsalz auch normales Speisesalz nehmen?"
+  expected_pages: [27]
+  expected_keywords: ["Kein Speisesalz", "Salztabletten", "Spezialsalz für Spülmaschinen"]
+  must_refuse: false
+
+- id: g007
+  question: "Wie oft regeneriert die Enthärtungsanlage und was kostet das an Strom und Wasser?"
+  expected_pages: [27]
+  expected_keywords: ["6", "7", "5", "0,05", "Regenerieren"]
+  must_refuse: false
+
+# ---------------------------------------------------------------------------
+# Klarspüler / Reiniger
+# ---------------------------------------------------------------------------
+
+- id: g008
+  question: "Auf meinen Gläsern bleiben Schlieren zurück. Was stelle ich beim Klarspüler um?"
+  expected_pages: [28, 53]
+  expected_keywords: ["Klarspülerzugabemenge", "niedrige", "Schlieren", "r05"]
+  must_refuse: false
+
+- id: g009
+  question: "Wie schalte ich die Klarspüleranlage komplett aus?"
+  expected_pages: [29, 36]
+  expected_keywords: ["r00", "Klarspüleranlage ausschalten", "Grundeinstellungen"]
+  must_refuse: false
+
+- id: g010
+  question: "Wieviel Pulver soll ich bei normal verschmutztem Geschirr nehmen?"
+  expected_pages: [31]
+  expected_keywords: ["20 ml", "25 ml", "Reinigerkammer", "Dosierung"]
+  must_refuse: false
+
+- id: g011
+  question: "Kann ich normales Handspülmittel in den Geschirrspüler geben?"
+  expected_pages: [30]
+  expected_keywords: ["Handspülmittel", "Schaumbildung", "Geräteschäden"]
+  must_refuse: false
+
+- id: g012
+  question: "Reichen bei uns 3in1-Tabs aus oder brauche ich trotzdem noch Salz und Klarspüler?"
+  expected_pages: [30, 31]
+  expected_keywords: ["21 °dH", "kombinierte Reiniger", "14 °dH", "Spezialsalz"]
+  must_refuse: false
+
+- id: g013
+  question: "Wie herum muss der Tab in die Kammer und warum löst er sich manchmal nicht auf?"
+  expected_pages: [29, 31, 50]
+  expected_keywords: ["quer", "Reinigerkammer", "Tab-Auffangschale", "Auflösezeit"]
+  must_refuse: false
+
+# ---------------------------------------------------------------------------
+# Fehlercodes / Störungen
+# ---------------------------------------------------------------------------
+
+- id: g014
+  question: "Was bedeutet E:32-00?"
+  expected_pages: [45, 46]
+  expected_keywords: ["Zulaufschlauch", "Wasserhahn", "Sieb", "geknickt", "10 l/min"]
+  must_refuse: false
+
+- id: g015
+  question: "Die Maschine pumpt das Wasser nicht mehr ab. Was mache ich?"
+  expected_pages: [46, 55, 59]
+  expected_keywords: ["Abwasserpumpe", "Abwasserschlauch", "Siebe", "verstopft"]
+  must_refuse: false
+
+- id: g016
+  question: "Bei mir kommt immer wieder ein Fehlercode. Wie setze ich das Gerät komplett zurück, Schritt für Schritt?"
+  expected_pages: [47]
+  expected_keywords: ["Netzstecker", "Sicherung", "2 Minuten", "Fehlercode", "Kundendienst"]
+  must_refuse: false
+
+- id: g017
+  question: "Alle Lämpchen am Bedienfeld blinken gleichzeitig. Was jetzt?"
+  expected_pages: [57]
+  expected_keywords: ["4 Sekunden", "zurückgesetzt", "Netzstecker", "Sicherung"]
+  must_refuse: false
+
+- id: g018
+  question: "Was heißt E:92-40?"
+  expected_pages: [47]
+  expected_keywords: ["Siebe", "verschmutzt", "verstopft", "reinigen"]
+  must_refuse: false
+
+- id: g019
+  question: "E:20-60 wird angezeigt, was ist da los?"
+  expected_pages: [45]
+  expected_keywords: ["Heizelement", "verkalkt", "Entkalken", "Enthärtungsanlage"]
+  must_refuse: false
+
+- id: g020
+  question: "Nach dem Programm steht noch Wasser unten im Gerät."
+  expected_pages: [55, 43, 59]
+  expected_keywords: ["Siebsystem", "verstopft", "Abwasserpumpe", "Programm abbrechen"]
+  must_refuse: false
+
+- id: g021
+  question: "Es schäumt total stark aus der Maschine. Woran liegt das?"
+  expected_pages: [54]
+  expected_keywords: ["Handspülmittel", "Vorratsbehälter für Klarspüler", "Schaum", "verschüttet"]
+  must_refuse: false
+
+- id: g022
+  question: "Die Gerätetür geht nicht mehr richtig zu."
+  expected_pages: [56, 57]
+  expected_keywords: ["Türschloss", "Kraftaufwand", "eingebaut", "Geschirrkorb"]
+  must_refuse: false
+
+- id: g023
+  question: "Die Salzanzeige leuchtet, obwohl ich gerade Salz nachgefüllt habe."
+  expected_pages: [55]
+  expected_keywords: ["Sensor", "Spezialsalztabletten", "Nachfüllanzeige"]
+  must_refuse: false
+
+# ---------------------------------------------------------------------------
+# Spülergebnis
+# ---------------------------------------------------------------------------
+
+- id: g024
+  question: "Mein Geschirr ist nach dem Spülen immer noch nass. Was kann ich tun?"
+  expected_pages: [47, 48]
+  expected_keywords: ["Klarspüler", "Trocknung", "Extratrocknen", "30 Minuten"]
+  must_refuse: false
+
+- id: g025
+  question: "Warum ist der Innenraum nach dem Spülgang nass, obwohl das Geschirr trocken ist?"
+  expected_pages: [49]
+  expected_keywords: ["Kondensationstrocknen", "Wassertropfen", "Kein Fehler"]
+  must_refuse: false
+
+- id: g026
+  question: "Auf dem Geschirr und im Innenraum sind weiße Beläge, die kaum abgehen."
+  expected_pages: [50, 51]
+  expected_keywords: ["Enthärtungsanlage", "Härtebereich", "Spezialsalz", "Reiniger"]
+  must_refuse: false
+
+- id: g027
+  question: "Es bleiben Speisereste am Geschirr kleben, obwohl die Maschine läuft."
+  expected_pages: [49]
+  expected_keywords: ["Sprüharm", "Siebe", "Freiraum", "stärkeres Spülprogramm"]
+  must_refuse: false
+
+- id: g028
+  question: "Mein Besteck bekommt Rostflecken."
+  expected_pages: [53, 54]
+  expected_keywords: ["rostbeständig", "Spezialsalz", "Salzgehalt", "verschüttet"]
+  must_refuse: false
+
+# ---------------------------------------------------------------------------
+# Reinigung / Pflege
+# ---------------------------------------------------------------------------
+
+- id: g029
+  question: "Wie baue ich die Siebe aus und reinige sie?"
+  expected_pages: [43, 44]
+  expected_keywords: ["Grobsieb", "Feinsieb", "Mikrosieb", "gegen den Uhrzeigersinn"]
+  must_refuse: false
+
+- id: g030
+  question: "Wie bekomme ich die Sprüharme ab, um die Düsen freizumachen?"
+  expected_pages: [44]
+  expected_keywords: ["oberen Sprüharm", "abschrauben", "unteren Sprüharm", "Austrittsdüsen"]
+  must_refuse: false
+
+- id: g031
+  question: "Wie reinige ich die Laugenpumpe?"
+  expected_pages: [59]
+  expected_keywords: ["Abwasserpumpe", "Pumpenabdeckung", "Flügelrad", "Siebsystem"]
+  must_refuse: false
+
+- id: g032
+  question: "Wie mache ich die Maschinenpflege richtig und wie oft?"
+  expected_pages: [41, 42]
+  expected_keywords: ["Maschinenpflege", "ohne Geschirr", "Maschinenpflegemittel", "Maschinenreiniger", "2 Monate"]
+  must_refuse: false
+
+# ---------------------------------------------------------------------------
+# Bedienung / Programme / Einstellungen
+# ---------------------------------------------------------------------------
+
+- id: g033
+  question: "Welches Programm verbraucht am wenigsten?"
+  expected_pages: [19, 34]
+  expected_keywords: ["Eco 50°", "Sparsamstes Programm", "effizienteste", "Wasserverbrauch"]
+  must_refuse: false
+
+- id: g034
+  question: "Wofür ist die IntensivZone gut?"
+  expected_pages: [21]
+  expected_keywords: ["Unterkorb", "Sprühdruck", "verschmutzt", "Laufzeit"]
+  must_refuse: false
+
+- id: g035
+  question: "Wie stelle ich ein, dass die Maschine erst in ein paar Stunden losläuft?"
+  expected_pages: [34]
+  expected_keywords: ["Zeitvorwahl", "24 Stunden", "h:01"]
+  must_refuse: false
+
+- id: g036
+  question: "Wie breche ich ein laufendes Programm ab, wenn ich das falsche gewählt habe?"
+  expected_pages: [35]
+  expected_keywords: ["Programm abbrechen", "4 Sekunden", "Gerätetür"]
+  must_refuse: false
+
+- id: g037
+  question: "Kann ich mitten im Spülgang noch einen Teller nachlegen?"
+  expected_pages: [35]
+  expected_keywords: ["Gerätetür", "Tab-Auffangschale", "unterbrochen"]
+  must_refuse: false
+
+- id: g038
+  question: "Was muss ich vor der allerersten Benutzung alles machen?"
+  expected_pages: [25]
+  expected_keywords: ["Spezialsalz", "Klarspüler", "Enthärtungsanlage einstellen", "ohne Geschirr"]
+  must_refuse: false
+
+- id: g039
+  question: "Wie setze ich das Gerät auf Werkseinstellungen zurück?"
+  expected_pages: [38]
+  expected_keywords: ["Werkseinstellung", "rE", "YES"]
+  must_refuse: false
+
+- id: g040
+  question: "Wie verbinde ich den Geschirrspüler mit meinem WLAN?"
+  expected_pages: [39]
+  expected_keywords: ["Home Connect App", "QR-Code", "WLAN-Heimnetzwerk"]
+  must_refuse: false
+
+- id: g041
+  question: "Darf ich das Gerät an die Warmwasserleitung anschließen?"
+  expected_pages: [36]
+  expected_keywords: ["Warmwasser", "A01", "60 °C", "40 °C"]
+  must_refuse: false
+
+- id: g042
+  question: "Wie verstelle ich den Oberkorb in der Höhe, damit größere Teller unten reinpassen?"
+  expected_pages: [22, 23, 24]
+  expected_keywords: ["Hebel", "Geschirrkorb", "Stufe", "34 cm"]
+  must_refuse: false
+
+- id: g043
+  question: "Was macht das Licht am Boden und wie kriege ich es weg?"
+  expected_pages: [37]
+  expected_keywords: ["InfoLight", "Lichtpunkt", "I00"]
+  must_refuse: false
+
+- id: g044
+  question: "Wir ziehen um. Wie bereite ich die Spülmaschine für den Transport vor?"
+  expected_pages: [59, 60]
+  expected_keywords: ["entleeren", "aufrecht", "Zulaufschlauch", "Wasserhahn"]
+  must_refuse: false
+
+- id: g045
+  question: "Welche Nummern muss ich dem Kundendienst nennen und wo finde ich die?"
+  expected_pages: [60, 61]
+  expected_keywords: ["E-Nr", "FD", "Z-Nr", "Typenschild"]
+  must_refuse: false
+
+- id: g046
+  question: "Für wie viele Maßgedecke ist das Gerät ausgelegt und welchen Wasserdruck braucht es?"
+  expected_pages: [61]
+  expected_keywords: ["13 Maßgedecke", "50 kPa", "1000 kPa", "Wasserdruck"]
+  must_refuse: false
+
+# ---------------------------------------------------------------------------
+# must_refuse — plausibel gefragt, aber in DIESER Anleitung nicht beantwortet.
+# Jede dieser Fragen zieht Treffer mit hoher Oberflächenähnlichkeit
+# (Garantie, Verbrauch, Regenerieren, Geräusche ...), aber die Antwort
+# steht nicht drin. Genau das ist der Punkt.
+# ---------------------------------------------------------------------------
+
+- id: g047
+  question: "Wie lange habe ich Herstellergarantie auf den Geschirrspüler?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # S.60 verweist ausdrücklich an Kundendienst/Händler/Webseite; eine Dauer
+  # nennt die Anleitung nicht. Die AQUA-STOP-Garantie (S.61, "Lebensdauer des
+  # Geräts") ist eine andere Zusage und darf nicht als Antwort gelten.
+
+- id: g048
+  question: "Welche Einbaumaße braucht die Nische für dieses Gerät?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # S.13 verweist auf die separate Montageanleitung. Keine Maße im Dokument.
+
+- id: g049
+  question: "Wie viele Kilowattstunden und wie viele Liter verbraucht ein Durchlauf im Eco 50°?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # S.19 verweist auf die Kurzanleitung. Die 0,05 kWh / 5 l auf S.27 sind der
+  # Mehrverbrauch beim Regenerieren, nicht der Programmverbrauch.
+
+- id: g050
+  question: "Wie lange dauert das Eco 50° Programm in Minuten?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # Anleitung sagt nur, dass die Laufzeit variiert. Keine Zahl.
+
+- id: g051
+  question: "Wie laut ist das Gerät in Dezibel?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # Kapitel "Geräusche" (S.58) behandelt Störgeräusche, nennt keinen Schallwert.
+  # "dB" kommt im gesamten Dokument nicht vor.
+
+- id: g052
+  question: "Welche Energieeffizienzklasse hat das Gerät?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # S.61 verweist auf die EPREL-Datenbank. Keine Klasse im Dokument.
+
+- id: g053
+  question: "Wie starte ich die Regeneration der Enthärtungsanlage von Hand?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # S.27 beschreibt nur die automatische Regeneration alle 6 Spülgänge.
+  # Eine manuelle Auslösung gibt es nicht und wird nirgends beschrieben.
+
+- id: g054
+  question: "Wie aktiviere ich die Kindersicherung an der Tür?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # "Kindersicherung" steht nur einmal im Dokument (S.9, Sicherheitshinweis
+  # "Falls vorhanden, die Kindersicherung nutzen"). Es gibt keine Anleitung
+  # zum Aktivieren und keinen Eintrag in den Grundeinstellungen.
+
+- id: g055
+  question: "Wie viel Gramm Spezialsalz passen in den Vorratsbehälter?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # Anleitung sagt nur "komplett füllen". Keine Mengenangabe, "Gramm" kommt
+  # im Dokument nicht vor.
+
+- id: g056
+  question: "Die Tür fällt zu schnell zu. Wie stelle ich die Türfeder nach?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # Türfeder/Türdämpfung werden im gesamten Dokument nicht erwähnt.
+
+- id: g057
+  question: "Welche zusätzlichen Programme kann ich über die Home Connect App herunterladen?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # S.20 sagt nur, DASS man zusätzliche Programme herunterladen kann.
+  # Welche das sind, steht nirgends.
+
+- id: g058
+  question: "Wie tausche ich die Türdichtung aus?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # "Türdichtungen" kommen nur auf S.41 vor, und zwar ausschließlich im
+  # Sinne von "regelmäßig feucht abwischen". Kein Austausch beschrieben.
+
+- id: g059
+  question: "Kann ich den Geschirrspüler per Sprachassistent steuern, also Alexa oder Google?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # Kein Treffer für Sprachsteuerung/Alexa/Google im Dokument. Nur
+  # Home Connect App und Remote Start.
+
+- id: g060
+  question: "Wie montiere ich die Möbelfront an der Gerätetür?"
+  expected_pages: []
+  expected_keywords: []
+  must_refuse: true
+  # Türdekor/Möbelfront werden nur beiläufig erwähnt (S.37 InfoLight,
+  # S.57 "darf nicht anstoßen"). Die Montage steht in der Montageanleitung.

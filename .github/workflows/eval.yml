@@ -8,14 +8,6 @@ on:
 jobs:
   golden-set:
     runs-on: [self-hosted, gpu]
-    # TODO(M0.4 · ingest & eval pipeline): server/eval/run_eval.py,
-    # server/eval/check_thresholds.py and server/eval/thresholds.yaml don't
-    # exist yet, so this job cannot pass. continue-on-error keeps the failure
-    # from blocking the workflow conclusion without hiding it — the job
-    # still runs and still reports failed (⚠) in the Actions UI. Remove
-    # continue-on-error once that milestone lands; do not delete the job or
-    # weaken server/eval/thresholds.yaml to make it pass early.
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
       - run: make eval

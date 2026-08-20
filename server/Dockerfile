@@ -18,18 +18,20 @@ ENV PATH="/opt/venv/bin:$PATH"
 COPY pyproject.toml ./
 COPY app ./app
 COPY ingest ./ingest
+COPY eval ./eval
 # Dev deps (pytest, ruff, mypy, ...) are included here because `make test`,
 # `make ingest` and `make eval` all run *inside* this image via
 # `docker compose run --rm api ...` (see Makefile). There is no separate
 # slimmed-down production image at this stage of the project.
 #
-# `ingest` must be copied in before this: pyproject.toml lists it under
-# [tool.hatch.build.targets.wheel] packages, so the wheel build below needs
-# its source present, or the installed "arsa" package silently ends up
-# without an importable `ingest` — `python -m ingest.run` still happens to
-# work regardless (WORKDIR is on sys.path when using `-m`), which is
-# exactly how this got missed the first time; plain `pytest` doesn't get
-# that same cwd insertion and fails with ModuleNotFoundError.
+# `ingest` and `eval` must be copied in before this: pyproject.toml lists
+# both under [tool.hatch.build.targets.wheel] packages, so the wheel build
+# below needs their source present, or the installed "arsa" package
+# silently ends up without an importable `ingest`/`eval` — `python -m
+# ingest.run` / `python -m eval.run_eval` still happen to work regardless
+# (WORKDIR is on sys.path when using `-m`), which is exactly how this got
+# missed for `ingest` the first time; plain `pytest` doesn't get that same
+# cwd insertion and fails with ModuleNotFoundError.
 RUN pip install --no-cache-dir ".[dev]"
 
 # ---------------------------------------------------------------------- runtime
@@ -51,6 +53,7 @@ RUN chown arsa:arsa /app
 
 COPY --chown=arsa:arsa app ./app
 COPY --chown=arsa:arsa ingest ./ingest
+COPY --chown=arsa:arsa eval ./eval
 COPY --chown=arsa:arsa tests ./tests
 COPY --chown=arsa:arsa pyproject.toml ./
 

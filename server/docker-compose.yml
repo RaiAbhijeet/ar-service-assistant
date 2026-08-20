@@ -37,11 +37,13 @@ services:
     volumes:
       # object.yaml is config, not source — mounted read-only so editing it
       # doesn't require an image rebuild. `data/` holds ingest.run's output
-      # (downloaded manuals, extracted figures); it must be a real mount,
-      # not the ephemeral `--rm` container's own writable layer, or
-      # `make ingest`'s output vanishes the moment that container exits.
+      # (downloaded manuals, extracted figures); `docs/benchmarks` holds
+      # run_eval.py's report. Both must be real mounts, not the ephemeral
+      # `--rm` container's own writable layer, or `make ingest`'s /
+      # `make eval`'s output vanishes the moment that container exits.
       - ../objects:/app/objects:ro
       - ../data:/app/data
+      - ../docs/benchmarks:/app/docs/benchmarks
 
 volumes:
   pgdata:

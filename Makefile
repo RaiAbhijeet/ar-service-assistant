@@ -41,13 +41,13 @@ test: ## Python unit + integration tests
 	docker compose -f server/docker-compose.yml run --rm api pytest -q
 
 lint: ## ruff + mypy
-	cd server && ruff check . && ruff format --check . && mypy --strict app ingest
+	cd server && ruff check . && ruff format --check . && mypy --strict app ingest eval
 
 ci-local: ## Run exactly what .github/workflows/server.yml runs, without a real Postgres
 	pip install -e "server[dev]"
 	ruff check server
 	ruff format --check server
-	mypy --strict --config-file server/pyproject.toml server/app server/ingest
+	mypy --strict --config-file server/pyproject.toml server/app server/ingest server/eval
 	POSTGRES_HOST=localhost POSTGRES_PORT=5432 POSTGRES_USER=arsa POSTGRES_PASSWORD=arsa POSTGRES_DB=arsa_test \
 	  pytest server/tests -q --cov=server/app --cov-report=term-missing --cov-fail-under=80
 

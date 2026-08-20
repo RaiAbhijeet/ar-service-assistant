@@ -1,0 +1,7 @@
+# Gates read by check_thresholds.py against docs/benchmarks/eval-latest.json.
+#
+# If a run breaches these, fix retrieval (chunking, almost always — see
+# CLAUDE.md M1 DoD) — do NOT lower the numbers to make CI green.
+
+recall_at_5: 0.85
+refusal_accuracy: 0.95

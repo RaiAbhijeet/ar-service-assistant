@@ -60,17 +60,27 @@ async def search_dense(
     """Return the `top_k` chunks closest to `query_vector` by cosine similarity.
 
     The vector is passed as a pgvector text literal and cast in SQL
-    (`$2::vector`) rather than relying on `pgvector.asyncpg.register_vector`
-    having been called on this connection — callers may be using a plain
-    connection-pool connection with no per-connection codec set up.
+    (`$2::text::vector`) rather than relying on
+    `pgvector.asyncpg.register_vector` having been called on this
+    connection — callers may be using a plain connection-pool connection
+    with no per-connection codec set up. The extra `::text` matters, not
+    just style: a bare `$2::vector` makes Postgres infer $2's type as
+    `vector`, so *if* register_vector has been applied on this connection
+    (e.g. because the caller's pool also writes embeddings elsewhere),
+    asyncpg routes the plain string through pgvector's registered codec —
+    which requires a real `Vector`/list/ndarray and raises `DataError` on a
+    string. Casting through `::text` first keeps $2 inferred as plain text,
+    so it always goes through ordinary string encoding no matter what the
+    connection has registered; confirmed against a real connection with
+    register_vector applied.
     """
     rows = await conn.fetch(
         """
         SELECT id, object_id, manual_id, page, section, step_no, text, figure_ids,
-               1 - (embedding <=> $2::vector) AS dense_score
+               1 - (embedding <=> $2::text::vector) AS dense_score
         FROM chunks
         WHERE object_id = $1 AND embedding IS NOT NULL
-        ORDER BY embedding <=> $2::vector
+        ORDER BY embedding <=> $2::text::vector
         LIMIT $3
         """,
         object_id,

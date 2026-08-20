@@ -1,0 +1,915 @@
+{
+  "object_id": "siemens-dishwasher",
+  "generated_at": "2026-08-20T10:31:44.449628+00:00",
+  "golden_set_path": "/app/eval/golden_de.yaml",
+  "n_entries": 60,
+  "n_answerable": 46,
+  "n_must_refuse": 14,
+  "metrics": {
+    "recall_at_5": 0.7318840579710144,
+    "keyword_hit": 0.2942028985507246,
+    "refusal_accuracy": 0.0
+  },
+  "entries": [
+    {
+      "id": "g001",
+      "question": "Wie stelle ich die Wasserhärte an meiner Spülmaschine ein?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        26,
+        53,
+        51,
+        25,
+        26
+      ],
+      "recall_at_5": 0.6666666666666666,
+      "keyword_hit": 0.5,
+      "refusal_correct": null
+    },
+    {
+      "id": "g002",
+      "question": "Wir haben sehr hartes Wasser, 18 °dH. Welchen Wert muss ich einstellen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        51,
+        53,
+        27,
+        25,
+        26
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 1.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g003",
+      "question": "Ab wann brauche ich überhaupt kein Spezialsalz mehr?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        54,
+        27,
+        12,
+        26,
+        27
+      ],
+      "recall_at_5": 0.6666666666666666,
+      "keyword_hit": 0.75,
+      "refusal_correct": null
+    },
+    {
+      "id": "g004",
+      "question": "Die Salznachfüllanzeige nervt mich, weil ich Multitabs benutze. Kann ich die abschalten?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        27,
+        27,
+        27,
+        54,
+        55
+      ],
+      "recall_at_5": 0.5,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g005",
+      "question": "Wie fülle ich das Salz richtig ein?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        54,
+        27,
+        54,
+        27,
+        27
+      ],
+      "recall_at_5": 0.5,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g006",
+      "question": "Kann ich statt Spezialsalz auch normales Speisesalz nehmen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        12,
+        54,
+        27,
+        26,
+        27
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.3333333333333333,
+      "refusal_correct": null
+    },
+    {
+      "id": "g007",
+      "question": "Wie oft regeneriert die Enthärtungsanlage und was kostet das an Strom und Wasser?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        27,
+        27,
+        27,
+        55,
+        50
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 1.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g008",
+      "question": "Auf meinen Gläsern bleiben Schlieren zurück. Was stelle ich beim Klarspüler um?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        55,
+        28,
+        31,
+        53,
+        55
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.5,
+      "refusal_correct": null
+    },
+    {
+      "id": "g009",
+      "question": "Wie schalte ich die Klarspüleranlage komplett aus?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        55,
+        31,
+        55,
+        53,
+        45
+      ],
+      "recall_at_5": 0.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g010",
+      "question": "Wieviel Pulver soll ich bei normal verschmutztem Geschirr nehmen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        31,
+        30,
+        34,
+        33,
+        58
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.75,
+      "refusal_correct": null
+    },
+    {
+      "id": "g011",
+      "question": "Kann ich normales Handspülmittel in den Geschirrspüler geben?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        11,
+        13,
+        12,
+        28,
+        28
+      ],
+      "recall_at_5": 0.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g012",
+      "question": "Reichen bei uns 3in1-Tabs aus oder brauche ich trotzdem noch Salz und Klarspüler?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        30,
+        31,
+        55,
+        51,
+        54
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.25,
+      "refusal_correct": null
+    },
+    {
+      "id": "g013",
+      "question": "Wie herum muss der Tab in die Kammer und warum löst er sich manchmal nicht auf?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        50,
+        50,
+        57,
+        35,
+        32
+      ],
+      "recall_at_5": 0.3333333333333333,
+      "keyword_hit": 0.75,
+      "refusal_correct": null
+    },
+    {
+      "id": "g014",
+      "question": "Was bedeutet E:32-00?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        45,
+        45,
+        46,
+        45,
+        47
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g015",
+      "question": "Die Maschine pumpt das Wasser nicht mehr ab. Was mache ich?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        46,
+        55,
+        55,
+        55,
+        60
+      ],
+      "recall_at_5": 0.6666666666666666,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g016",
+      "question": "Bei mir kommt immer wieder ein Fehlercode. Wie setze ich das Gerät komplett zurück, Schritt für Schritt?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        47,
+        57,
+        55,
+        55,
+        55
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.6,
+      "refusal_correct": null
+    },
+    {
+      "id": "g017",
+      "question": "Alle Lämpchen am Bedienfeld blinken gleichzeitig. Was jetzt?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        55,
+        55,
+        47,
+        46,
+        16
+      ],
+      "recall_at_5": 0.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g018",
+      "question": "Was heißt E:92-40?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        47,
+        47,
+        46,
+        45,
+        46
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g019",
+      "question": "E:20-60 wird angezeigt, was ist da los?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        45,
+        45,
+        47,
+        45,
+        46
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g020",
+      "question": "Nach dem Programm steht noch Wasser unten im Gerät.",
+      "must_refuse": false,
+      "retrieved_pages": [
+        56,
+        46,
+        55,
+        55,
+        11
+      ],
+      "recall_at_5": 0.3333333333333333,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g021",
+      "question": "Es schäumt total stark aus der Maschine. Woran liegt das?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        46,
+        55,
+        55,
+        55,
+        54
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.25,
+      "refusal_correct": null
+    },
+    {
+      "id": "g022",
+      "question": "Die Gerätetür geht nicht mehr richtig zu.",
+      "must_refuse": false,
+      "retrieved_pages": [
+        56,
+        56,
+        38,
+        35,
+        35
+      ],
+      "recall_at_5": 0.5,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g023",
+      "question": "Die Salzanzeige leuchtet, obwohl ich gerade Salz nachgefüllt habe.",
+      "must_refuse": false,
+      "retrieved_pages": [
+        55,
+        55,
+        55,
+        54,
+        55
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.3333333333333333,
+      "refusal_correct": null
+    },
+    {
+      "id": "g024",
+      "question": "Mein Geschirr ist nach dem Spülen immer noch nass. Was kann ich tun?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        48,
+        48,
+        48,
+        28,
+        49
+      ],
+      "recall_at_5": 0.5,
+      "keyword_hit": 0.25,
+      "refusal_correct": null
+    },
+    {
+      "id": "g025",
+      "question": "Warum ist der Innenraum nach dem Spülgang nass, obwohl das Geschirr trocken ist?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        48,
+        48,
+        54,
+        49,
+        48
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g026",
+      "question": "Auf dem Geschirr und im Innenraum sind weiße Beläge, die kaum abgehen.",
+      "must_refuse": false,
+      "retrieved_pages": [
+        51,
+        50,
+        49,
+        48,
+        51
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.25,
+      "refusal_correct": null
+    },
+    {
+      "id": "g027",
+      "question": "Es bleiben Speisereste am Geschirr kleben, obwohl die Maschine läuft.",
+      "must_refuse": false,
+      "retrieved_pages": [
+        49,
+        53,
+        33,
+        48,
+        48
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g028",
+      "question": "Mein Besteck bekommt Rostflecken.",
+      "must_refuse": false,
+      "retrieved_pages": [
+        53,
+        48,
+        19,
+        54,
+        49
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g029",
+      "question": "Wie baue ich die Siebe aus und reinige sie?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        47,
+        46,
+        42,
+        43,
+        44
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g030",
+      "question": "Wie bekomme ich die Sprüharme ab, um die Düsen freizumachen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.5,
+      "refusal_correct": null
+    },
+    {
+      "id": "g031",
+      "question": "Wie reinige ich die Laugenpumpe?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        46,
+        52,
+        52,
+        54,
+        57
+      ],
+      "recall_at_5": 0.0,
+      "keyword_hit": 0.25,
+      "refusal_correct": null
+    },
+    {
+      "id": "g032",
+      "question": "Wie mache ich die Maschinenpflege richtig und wie oft?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        42,
+        42,
+        42,
+        41,
+        42
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.6,
+      "refusal_correct": null
+    },
+    {
+      "id": "g033",
+      "question": "Welches Programm verbraucht am wenigsten?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        19,
+        53,
+        47,
+        21,
+        40
+      ],
+      "recall_at_5": 0.5,
+      "keyword_hit": 0.5,
+      "refusal_correct": null
+    },
+    {
+      "id": "g034",
+      "question": "Wofür ist die IntensivZone gut?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        21,
+        41,
+        39,
+        33,
+        50
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g035",
+      "question": "Wie stelle ich ein, dass die Maschine erst in ein paar Stunden losläuft?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        48,
+        55,
+        47,
+        56,
+        55
+      ],
+      "recall_at_5": 0.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g036",
+      "question": "Wie breche ich ein laufendes Programm ab, wenn ich das falsche gewählt habe?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        35,
+        40,
+        56,
+        56,
+        50
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.3333333333333333,
+      "refusal_correct": null
+    },
+    {
+      "id": "g037",
+      "question": "Kann ich mitten im Spülgang noch einen Teller nachlegen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        48,
+        20,
+        20,
+        19,
+        19
+      ],
+      "recall_at_5": 0.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g038",
+      "question": "Was muss ich vor der allerersten Benutzung alles machen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        26,
+        25,
+        25,
+        55,
+        47
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g039",
+      "question": "Wie setze ich das Gerät auf Werkseinstellungen zurück?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        21,
+        38,
+        45,
+        57,
+        55
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 1.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g040",
+      "question": "Wie verbinde ich den Geschirrspüler mit meinem WLAN?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        40,
+        13,
+        11,
+        39,
+        45
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g041",
+      "question": "Darf ich das Gerät an die Warmwasserleitung anschließen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        14,
+        36,
+        13,
+        55,
+        13
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 1.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g042",
+      "question": "Wie verstelle ich den Oberkorb in der Höhe, damit größere Teller unten reinpassen?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        59,
+        24,
+        23,
+        22,
+        22
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.25,
+      "refusal_correct": null
+    },
+    {
+      "id": "g043",
+      "question": "Was macht das Licht am Boden und wie kriege ich es weg?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        37,
+        59,
+        59,
+        59,
+        46
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.3333333333333333,
+      "refusal_correct": null
+    },
+    {
+      "id": "g044",
+      "question": "Wir ziehen um. Wie bereite ich die Spülmaschine für den Transport vor?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        19,
+        19,
+        4,
+        20,
+        20
+      ],
+      "recall_at_5": 0.0,
+      "keyword_hit": 0.0,
+      "refusal_correct": null
+    },
+    {
+      "id": "g045",
+      "question": "Welche Nummern muss ich dem Kundendienst nennen und wo finde ich die?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        8,
+        61,
+        61,
+        57,
+        46
+      ],
+      "recall_at_5": 0.5,
+      "keyword_hit": 0.75,
+      "refusal_correct": null
+    },
+    {
+      "id": "g046",
+      "question": "Für wie viele Maßgedecke ist das Gerät ausgelegt und welchen Wasserdruck braucht es?",
+      "must_refuse": false,
+      "retrieved_pages": [
+        61,
+        61,
+        46,
+        26,
+        53
+      ],
+      "recall_at_5": 1.0,
+      "keyword_hit": 0.5,
+      "refusal_correct": null
+    },
+    {
+      "id": "g047",
+      "question": "Wie lange habe ich Herstellergarantie auf den Geschirrspüler?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        13,
+        11,
+        61,
+        48,
+        55
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g048",
+      "question": "Welche Einbaumaße braucht die Nische für dieses Gerät?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        13,
+        6,
+        7,
+        13,
+        55
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g049",
+      "question": "Wie viele Kilowattstunden und wie viele Liter verbraucht ein Durchlauf im Eco 50°?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        12,
+        34,
+        20,
+        34,
+        12
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g050",
+      "question": "Wie lange dauert das Eco 50° Programm in Minuten?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        12,
+        34,
+        20,
+        34,
+        19
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g051",
+      "question": "Wie laut ist das Gerät in Dezibel?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        55,
+        47,
+        46,
+        11,
+        40
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g052",
+      "question": "Welche Energieeffizienzklasse hat das Gerät?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        60,
+        40,
+        7,
+        45,
+        40
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g053",
+      "question": "Wie starte ich die Regeneration der Enthärtungsanlage von Hand?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        50,
+        50,
+        45,
+        55,
+        52
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g054",
+      "question": "Wie aktiviere ich die Kindersicherung an der Tür?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        9,
+        9,
+        55,
+        10,
+        38
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g055",
+      "question": "Wie viel Gramm Spezialsalz passen in den Vorratsbehälter?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        27,
+        26,
+        54,
+        12,
+        27
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g056",
+      "question": "Die Tür fällt zu schnell zu. Wie stelle ich die Türfeder nach?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        56,
+        56,
+        57,
+        41,
+        55
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g057",
+      "question": "Welche zusätzlichen Programme kann ich über die Home Connect App herunterladen?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        20,
+        40,
+        39,
+        39,
+        39
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g058",
+      "question": "Wie tausche ich die Türdichtung aus?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        38,
+        35,
+        35,
+        54,
+        56
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g059",
+      "question": "Kann ich den Geschirrspüler per Sprachassistent steuern, also Alexa oder Google?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        13,
+        11,
+        12,
+        4,
+        55
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    },
+    {
+      "id": "g060",
+      "question": "Wie montiere ich die Möbelfront an der Gerätetür?",
+      "must_refuse": true,
+      "retrieved_pages": [
+        56,
+        56,
+        41,
+        38,
+        35
+      ],
+      "recall_at_5": null,
+      "keyword_hit": null,
+      "refusal_correct": false
+    }
+  ]
+}
